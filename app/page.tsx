@@ -80,10 +80,10 @@ export default function Home() {
 
   return (
 
-    <div className="min-h-screen bg-black text-white flex flex-col items-center pt-10">
+    <div className="min-h-screen bg-black text-white flex flex-col items-center px-10">
 
-      <h1 className="text-4xl font-bold mb-6 text-cyan-400">
-        Neon Note Manager
+      <h1 className="text-4xl font-bold mb-6 title-neon">
+        Note Manager
       </h1>
 
 
@@ -97,9 +97,10 @@ export default function Home() {
           className="p-2 rounded bg-white text-black"
         />
 
+
         <button
           onClick={() => editingId ? updateNote(editingId) : addNote()}
-          className="bg-cyan-500 px-4 py-2 rounded"
+          className="button-neon"
         >
           {editingId ? "Update" : "Add"}
         </button>
@@ -131,17 +132,13 @@ export default function Home() {
       {!hide && (
 
         <ul className="w-96">
-
           {filteredNotes.map((note) => (
             <li
               key={note.id}
-              className="bg-gray-800 p-3 mb-3 rounded flex justify-between items-center"
+              className="note-floating note-neon flex justify-between items-center mb-3"
             >
-
               <span>{note.text}</span>
-
               <div className="flex gap-3">
-
                 <button
                   onClick={() => {
                     setText(note.text)
@@ -151,24 +148,22 @@ export default function Home() {
                 >
                   Edit
                 </button>
-
                 <button
                   onClick={() => deleteNote(note.id)}
                   className="text-red-400"
                 >
                   Delete
                 </button>
-
               </div>
-
             </li>
           ))}
-
         </ul>
 
-      )}
 
-    </div>
+      )
+      }
+
+    </div >
 
   )
 

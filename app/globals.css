@@ -1,26 +1,110 @@
-@import "tailwindcss";
-
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+/* ===================== */
+/* BODY & BACKGROUND     */
+/* ===================== */
+body {
+  /* Example: purple neon vibe */
+  background: radial-gradient(circle at top, #2a003a 0%, #0a0010 100%);
+  color: var(--foreground);
+  font-family: Arial, Helvetica, sans-serif;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding-top: 40px;
+  overflow-x: hidden;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+/* Subtle ambient neon glow */
+body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle at 50% 50%, rgba(0, 255, 255, 0.05) 0%, transparent 70%);
+  pointer-events: none;
+  z-index: -1;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+/* ===================== */
+/* FLOATING / ANTIGRAVITY NOTES */
+/* ===================== */
+@keyframes float {
+  0% {
+    transform: translateY(0px) rotate(0deg);
+  }
+
+  50% {
+    transform: translateY(-8px) rotate(-1deg);
+  }
+
+  100% {
+    transform: translateY(0px) rotate(0deg);
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+.note-floating {
+  animation: float 3s ease-in-out infinite;
+  transition: transform 0.2s;
+}
+
+/* ===================== */
+/* NEON NOTE STYLING     */
+/* ===================== */
+.note-neon {
+  border: 2px solid #0ff;
+  /* cyan neon border */
+  box-shadow: 0 0 10px #0ff, 0 0 20px #0ff, 0 0 30px #0ff;
+  color: #0ff;
+  background: rgba(0, 0, 0, 0.7);
+  /* semi-transparent dark background */
+  padding: 12px;
+  border-radius: 12px;
+}
+
+/* ===================== */
+/* NEON BUTTONS          */
+/* ===================== */
+.button-neon {
+  background: #0ff;
+  color: #000;
+  padding: 10px 20px;
+  border-radius: 8px;
+  font-weight: bold;
+  box-shadow: 0 0 5px #0ff, 0 0 10px #0ff;
+  transition: all 0.3s ease;
+}
+
+.button-neon:hover {
+  box-shadow: 0 0 10px #0ff, 0 0 20px #0ff, 0 0 30px #0ff;
+  transform: translateY(-2px);
+}
+
+/* ===================== */
+/* INPUTS                */
+/* ===================== */
+input {
+  border-radius: 8px;
+  padding: 8px;
+  border: 2px solid #0ff;
+  background: rgba(0, 0, 0, 0.7);
+  color: #0ff;
+  outline: none;
+  box-shadow: 0 0 5px #0ff;
+  transition: all 0.3s ease;
+}
+
+input:focus {
+  box-shadow: 0 0 10px #0ff, 0 0 20px #0ff;
+}
+
+.title-neon {
+  color: yellow;
+  /* bright purple */
+  text-shadow: 0 0 5px #c800ff,
+    0 0 10px #c800ff,
+    0 0 20px #c800ff,
+    0 0 40px #c800ff;
+  font-weight: bold;
 }
