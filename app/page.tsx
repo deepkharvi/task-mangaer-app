@@ -1,10 +1,11 @@
 "use client"
 
 import { useEffect, useState } from "react"
+import { Note } from "@/type/type" // <- import the type
 
 export default function Home() {
 
-  const [notes, setNotes] = useState<any[]>([])
+  const [notes, setNotes] = useState<Note[]>([])
   const [text, setText] = useState("")
   const [hide, setHide] = useState(false)
   const [search, setSearch] = useState("")
@@ -14,7 +15,7 @@ export default function Home() {
   // LOAD NOTES
   async function loadNotes() {
     const res = await fetch("/api/notes")
-    const data = await res.json()
+    const data: Note[] = await res.json()
     setNotes(data)
   }
 
