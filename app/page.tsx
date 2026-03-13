@@ -4,7 +4,7 @@ import { useEffect, useState } from "react"
 
 export default function Home() {
 
-  const [notes, setNotes] = useState<any[]>([])
+  const [notes, setNotes] = useState<Note[]>([])
   const [text, setText] = useState("")
   const [hide, setHide] = useState(false)
   const [search, setSearch] = useState("")
